@@ -71,6 +71,10 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
