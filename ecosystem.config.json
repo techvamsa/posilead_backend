@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "posilead",
+      "script": "index.js",
+      "env": {
+        "PORT": 7002
+      }
+    }
+  ]
+}
