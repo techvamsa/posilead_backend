@@ -16,7 +16,7 @@ const report = require("./route/report");
 const whatsApp = require("./route/whatsAppMessageing");
 const ReferralLead = require("./route/ReferralLeadRoutes");
 const { testCronJob } = require("./controller/WhatsappMessaging");
-
+const path = require("path")
 
 dotenv.config();
 app.use(express.json({
@@ -25,7 +25,7 @@ app.use(express.json({
 }));
 app.use(cors({ origin: true, credentials: true }));
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.port || 7002;
 
 app.use(compression({ filter: shouldCompress, level: 6 }));
 
