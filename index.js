@@ -49,7 +49,7 @@ app.use("/api/referralLead", ReferralLead);
 app.use("/webHook", webHook);
 app.use("/working", working);
 app.use("/testCronJob", testCronJob);
-
+app.use(express.static(path.join(__dirname, 'build')));
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
