@@ -27,16 +27,17 @@ const getWebhook = async (req, res, next) => {
 const postWebhook = async (req, res, next) => {
   // Parse the query params
   // res.status(200).json(req.body);
-
+  console.log("web hook responce fb")
   try {
     // Parse the request body from the POST
     let body = req.body;
-
+    console.log(body, "body")
     // Check the webhook event is from a Page subscription
     if (!req.body.entry) {
       return res.status(500).send({ error: "Invalid POST data received" });
     }
     if (body.object === "page") {
+       console.log(req.body.entry, "req.body.entry")
       // Iterate over each entry - there may be multiple if batched
       for (const entry of req.body.entry) {
         for (const change of entry.changes) {
@@ -48,6 +49,7 @@ const postWebhook = async (req, res, next) => {
             change?.value?.form_id
           );
         }
+
       }
       res.status(200).send("EVENT_RECEIVED");
     }
@@ -189,16 +191,16 @@ const whatsAppWebHook = (req, res) => {
 };
 
 const PostWhatsAppWebHook = async (req, res) => {
-  console.log(req.body,"check");
+  console.log(req.body, "check");
   const body = req.body
   try {
     if (!req.body.entry) {
-      console.log("running post",198);
+      console.log("running post", 198);
       return res.status(500).send({ error: "Invalid POST data received" });
-      
+
     }
     if (body.object === "whatsapp_business_account") {
-      console.log("running post",198);
+      console.log("running post", 198);
       // Iterate over each entry - there may be multiple if batched
       for (const entry of req.body.entry) {
         for (const change of entry.changes) {
@@ -296,7 +298,7 @@ const PostWhatsAppWebHook = async (req, res) => {
     }
 
     // console.log("Incoming webhook: " + JSON.stringify(req.body));
-    
+
   } catch (error) {
     return res.sendStatus(400);
   }
