@@ -95,7 +95,7 @@ async function processNewLead(leadId, adgroup_id, ad_id, page_id, form_id) {
   }
   try {
     const { data } = await axios.post(
-      `https://api.posilead.com/api/app/findAppUsingPageId`,
+      `https://posilead.techvamsa.com/api/app/findAppUsingPageId`,
       {
         page_id: page_id,
       }
@@ -136,7 +136,7 @@ async function processNewLead(leadId, adgroup_id, ad_id, page_id, form_id) {
 
   try {
     const { data } = await axios.post(
-      "https://api.posilead.com/api/page",
+      "https://posilead.techvamsa.com/api/page",
       {
         adgroup_id: adGroupId,
         ad_id: adId,
